@@ -200,6 +200,8 @@ def myclickaud():
         messagebox.showerror("Error","The carrier type is incorrect. Choose a wav file")
     elif(len(password)==0):
         messagebox.showerror("Error","Please enter password.")
+    elif(len(password)>16):
+        messagebox.showwarning("AES Password","The software uses AES. Thus, your password cannot exceed 16 characters.")
     elif(len(dir_name)==0):
         TiA.EncodeToAudio(a2,a1,a3,password)
         messagebox.showinfo("Status","Merge Complete")
@@ -245,6 +247,8 @@ def myclick2aud():
         messagebox.showwarning("Missing value","Please provide the password")
     elif(a1.split('.')[1]!='wav'):
         messagebox.showerror("Error","File type chosen is not wav")
+    elif(len(password)>16):
+        messagebox.showwarning("AES Password","The software uses AES. Thus, your password cannot exceed more than 16 characters.")
     else:
         try:
             TiA.DecodeFromAudio(a1,dir_name+'/'+a4,password)

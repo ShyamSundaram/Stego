@@ -9,7 +9,7 @@ In cryptography you obscure data so that no one else other than the person who i
 In steganography, there is no such paper trail. The fact that there is a message itself is hidden. Combining this with cryptography is pretty cool.
 <br><br>
 ## TECHNIQUES
-___
+
 The ones currently in the application use the Least Significant Bit method. But the project will support other methods slowly (in the long run. Pull requests are welcome).
 
 * [x] LSB
@@ -18,14 +18,12 @@ The ones currently in the application use the Least Significant Bit method. But 
 
 <br><br>
 ## TERMS
-___
 **Payload** - It is the secret data you want to hide.
 
 **Carrier** - It is the non-secret data in which you hide the payload.
 <br><br>
 
 ## FILE TYPES SUPPORTED
-___
 The table shows what files can be merged and extracted as of now.
 
 

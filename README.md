@@ -56,7 +56,6 @@ The table shows what files can be merged and extracted as of now.
 <br><br>
 
 ## ENCRYPTION
-___
 Encryption technique/standard used is mentioned and those available are marked in tasks.
 
 * [x] Text In Audio (AES Encryption)

@@ -66,7 +66,7 @@ def myclick():
     f3=e3.get()
     if(f1.split('.')[1] not in ('png','jpg','jpeg','webp')):
         messagebox.showerror("Error","The carrier type is not supported. You can use JPEG, JPG or PNG")
-    elif(f2.split('.')[1] not in ('png','jpg','jpeg','txt')):
+    elif(f2.split('.')[1] not in ('png','jpg','jpeg','webp','txt')):
         messagebox.showerror("Error","The payload type cannot be merged with the selected carrier type. Yo can use JPG, JPEG, PNG or TXT")
     elif(f3.split('.')[1] not in ('png')):
         messagebox.showerror("Error","This output file type is not supported. Use .png")
@@ -124,7 +124,7 @@ def myclick2():
     elif(f2.split('.')[1]=='txt' and len(dir_name)==0):
         TiP.decode(f1,f2)
         messagebox.showinfo("Status","Extraction Complete")
-    elif(f2.split('.')[1] not in ('png','jpg','jpeg','txt')):
+    elif(f2.split('.')[1] not in ('png','jpg','jpeg','txt','webp')):
         messagebox.showerror("Error","The payload type is incorrect.")
     elif(f2.split('.')[1].lower() in ('jpg','png','webp') and len(dir_name)!=0):
         PiP.unmerge(f1,dir_name+'/'+f2)
@@ -152,7 +152,7 @@ two.pack()
 #-------------------------------------------------------------------------------------Encode frame-------------------------------------------------------------
 
 def opencaraud():
-    two.filename=filedialog.askopenfilename(initialdir="\\",title="Select Carrier",filetypes=(("Audio Files", ".wav .ogg"),   ("All Files", "*.*")))
+    two.filename=filedialog.askopenfilename(initialdir="\\",title="Select Carrier",filetypes=(("Audio Files", ".wav .ogg .mp3"),   ("All Files", "*.*")))
     global a1
     a1=two.filename
 
@@ -192,11 +192,13 @@ e8.grid(row=4,column=1)
 def myclickaud():
     a3=e7.get()
     password=e8.get()
-    if(a3.split('.')[1]!='wav'):
+    if(a1.split(".")[1]=="mp3"):
+        messagebox.showinfo("MP3 TO WAV","Since the carrier file you have chosen is an MP3, a WAV copy of it will be created in order to work with it. After the merge is complete, you can delete the WAV copy if you wish to.")
+    if(a3.split('.')[1] not in ('wav','mp3')):
         messagebox.showerror("Error","The output type is incorrect. Can be saved to wav.")
     elif(a2.split('.')[1]!='txt'):
         messagebox.showerror("Error","The payload type is incorrect. Can hide only txt files.")
-    elif(a1.split('.')[1]!='wav'):
+    elif(a1.split('.')[1] not in ('wav','mp3')):
         messagebox.showerror("Error","The carrier type is incorrect. Choose a wav file")
     elif(len(password)==0):
         messagebox.showerror("Error","Please enter password.")

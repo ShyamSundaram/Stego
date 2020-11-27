@@ -5,6 +5,7 @@ from Crypto import Random
 from Crypto.Cipher import AES
 #from wave import open
 # read wave audio file
+from pydub import AudioSegment
 
 BS = 16
 pad = lambda s: bytes(s + (BS - len(s) % BS) * chr(BS - len(s) % BS), 'utf-8')
@@ -33,6 +34,11 @@ def EncodeToAudio(text_name,audio_name,f,password):
     string = text.read()
     text.close()
 
+    if(audio_name.split(".")[1]=="mp3"):
+        sound=AudioSegment.from_mp3(audio_name)
+        sound.export(audio_name.split(".")[0]+".wav",format="wav")
+        audio_name=audio_name.split(".")[0]+".wav"
+        print("conversion complete")
 
     cipher=AESCipher(password.zfill(16))
     string = cipher.encrypt(string)

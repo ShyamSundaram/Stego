@@ -3,9 +3,7 @@ from tkinter import ttk
 from tkinter import *
 from tkinter import messagebox
 import PicInPic2 as PiP
-import picpic as PiiP
 import TextInAudio as TiA
-#import TextInAudio as TiA
 from tkinter import filedialog
 import TextInPic as TiP
 import os
